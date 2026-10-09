@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 public class OpenRouterProperties {
     private String apiKey = "";
-    private String model = "google/gemini-2.0-flash-001";
+    private String model = "google/gemini-2.5-flash";
     private String siteUrl = "http://localhost:5173";
     private String siteName = "PulseHR";
 }
