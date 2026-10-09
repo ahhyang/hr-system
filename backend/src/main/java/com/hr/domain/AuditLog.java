@@ -1,5 +1,7 @@
 package com.hr.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 import lombok.experimental.SuperBuilder;
 import lombok.*;
@@ -33,9 +35,11 @@ public class AuditLog extends TenantEntity {
     @Column(name = "entity_id")
     private UUID entityId;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "before_value", columnDefinition = "jsonb")
     private String beforeValue;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "after_value", columnDefinition = "jsonb")
     private String afterValue;
 

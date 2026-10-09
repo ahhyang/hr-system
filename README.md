@@ -35,6 +35,33 @@ npm run dev
 
 Open http://localhost:5173 → **Create your workspace**.
 
+## Demo data
+
+Enable seeding on backend startup:
+
+```bash
+# PowerShell
+$env:APP_DEMO_SEED="true"
+cd backend
+.\mvnw.cmd spring-boot:run
+```
+
+Or set `APP_DEMO_SEED=true` in `.env` / Render env vars.
+
+This creates **PulseTech Solutions Sdn Bhd** with sample employees, attendance, leave, claims, payslips, and announcements.
+
+| Role | Email | Password |
+|------|-------|----------|
+| Company Admin | admin@pulsetech.demo | Demo123! |
+| HR | hr@pulsetech.demo | Demo123! |
+| Manager | manager@pulsetech.demo | Demo123! |
+| Employee | john@pulsetech.demo | Demo123! |
+| Employee | amy@pulsetech.demo | Demo123! |
+| Employee | david@pulsetech.demo | Demo123! |
+| Employee (onboarding) | lisa@pulsetech.demo | Demo123! |
+
+Log in at http://localhost:5173 with any account above. Seeding runs once — delete the tenant or reset the database to re-seed.
+
 ## Publish (free)
 
 1. **Neon** — create Postgres, run `CREATE EXTENSION IF NOT EXISTS vector;`, copy the **pooler** URL.

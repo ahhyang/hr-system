@@ -1,5 +1,7 @@
 package com.hr.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 import lombok.experimental.SuperBuilder;
 import lombok.Builder;
@@ -24,6 +26,7 @@ public class ApprovalWorkflow extends TenantEntity {
     @Column(name = "workflow_type", nullable = false)
     private String workflowType;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb", nullable = false)
     private String steps;
 

@@ -1,5 +1,7 @@
 package com.hr.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 import lombok.experimental.SuperBuilder;
 import lombok.Builder;
@@ -30,6 +32,7 @@ public class AiConversation extends TenantEntity {
     @Column(nullable = false)
     private String role;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     @Builder.Default
     private String messages = "[]";

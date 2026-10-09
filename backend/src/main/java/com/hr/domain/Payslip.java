@@ -1,5 +1,7 @@
 package com.hr.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 import lombok.experimental.SuperBuilder;
 import lombok.Builder;
@@ -77,6 +79,7 @@ public class Payslip extends TenantEntity {
     @Builder.Default
     private BigDecimal netSalary = BigDecimal.ZERO;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "line_items", columnDefinition = "jsonb")
     @Builder.Default
     private String lineItems = "[]";

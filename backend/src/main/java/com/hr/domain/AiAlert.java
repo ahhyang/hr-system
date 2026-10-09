@@ -1,5 +1,7 @@
 package com.hr.domain;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 import lombok.experimental.SuperBuilder;
 import lombok.Builder;
@@ -35,6 +37,7 @@ public class AiAlert extends TenantEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
 
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     private String metadata;
 
